@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:drawable="clr-namespace:MauiGraphicsSandbox"
+             x:Class="MauiGraphicsSandbox.MainPage">
+
+    <Grid>
+        <GraphicsView x:Name="graphicsView"
+            Drawable="{Binding Path=_renderer}" />
+        <Label Text="{Binding Path=Framerate}"></Label>
+    </Grid>
+
+</ContentPage>
