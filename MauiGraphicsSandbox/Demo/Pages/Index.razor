@@ -1,0 +1,32 @@
+﻿@page "/"
+@using System.Drawing
+@using BlazorGraphics
+
+<PageTitle>Index</PageTitle>
+
+<BlazorCanvas @ref="Canvas">
+    <canvas width="1000" height="1000"></canvas>
+</BlazorCanvas>
+
+@code
+{
+    public BlazorCanvas Canvas { get; set; }
+    public CubeWave _renderer { get; set; } = new();
+    private readonly CancellationTokenSource _cancellationTokenSource = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        while (!_cancellationTokenSource.IsCancellationRequested)
+        {
+            await Task.Delay(10, _cancellationTokenSource.Token);
+
+            if (Canvas is not { Ready: true })
+            {
+                continue;
+            }
+
+            _renderer.Draw(Canvas, new Rectangle(0, 0, 1000, 1000));
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+}
