@@ -29,11 +29,11 @@ public static class MatrixExtensions
         return Matrix4x4.Multiply(matrix, Matrix4x4.CreateRotationZ(zRotation));
     }
 
-    public static Vector3 Multiply(this Matrix4x4 matrices, Vector3 vector3)
+    public static Vector3 Multiply(this Matrix4x4 matrix, Vector3 vector3)
     {
-        var x = matrices.M11 * vector3.X + matrices.M21 * vector3.Y + matrices.M31 * vector3.Z + matrices.M41;
-        var y = matrices.M12 * vector3.X + matrices.M22 * vector3.Y + matrices.M32 * vector3.Z + matrices.M42;
-        var z = matrices.M13 * vector3.X + matrices.M23 * vector3.Y + matrices.M33 * vector3.Z + matrices.M43;
+        var x = matrix.M11 * vector3.X + matrix.M21 * vector3.Y + matrix.M31 * vector3.Z + matrix.M41;
+        var y = matrix.M12 * vector3.X + matrix.M22 * vector3.Y + matrix.M32 * vector3.Z + matrix.M42;
+        var z = matrix.M13 * vector3.X + matrix.M23 * vector3.Y + matrix.M33 * vector3.Z + matrix.M43;
 
         return new Vector3(x, y, z);
     }
