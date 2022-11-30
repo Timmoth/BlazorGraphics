@@ -1,11 +1,13 @@
-﻿using System.Numerics;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 namespace BlazorGraphics.Shapes;
 
 public class Group : Shape
 {
     public List<Shape> Shapes { get; set; } = new();
 
-    public override void Draw(Aptacode.BlazorCanvas.BlazorCanvas x, List<Vector3> nodes, float dt, Matrix4x4 transform)
+    public override void Draw(Aptacode.BlazorCanvas.BlazorCanvas x, Vector3[] nodes, float dt, Matrix4x4 transform)
     {
         var matrix = Matrix4x4.Multiply(Matrix, transform);
 

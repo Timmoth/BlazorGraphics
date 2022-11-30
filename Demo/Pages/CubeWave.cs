@@ -13,19 +13,24 @@ public class CubeWave
     {
         var cubeTranslateGroup = new Group
         {
-            Matrix = Matrix4x4.Identity.Translate(new Vector3(50, 350, 0)),
+            Matrix = Matrix4x4.Identity.Translate(new Vector3(250, 250, 0)),
         };
 
         var cubeGroup = new Group
         {
-            Matrix = Matrix4x4.Identity.RotateX(2f),
+            Animator = new Animator()
+            {
+                DxRotation = (dt) => 0.01f * dt,
+                DyRotation = (dt) => 0.015f * dt,
+                DzRotation = (dt) => 0.02f * dt,
+            }
         };
 
-        var size = 15;
-        var margin = 30;
-        for (var x = 0; x < 20; x++)
+        var size = 30;
+        var margin = 50;
+        for (var x = -10; x < 10; x++)
         {
-            for (var y = 0; y < 20; y++)
+            for (var y = -10; y < 10; y++)
             {
                 var pos = x + y;
                 var cube = new Cube(0, 0, 0, size, size, size)
@@ -33,7 +38,7 @@ public class CubeWave
                     Matrix = Matrix4x4.Identity.Translate(new Vector3(x * (size + margin), y * (size + margin), 1)),
                     Animator = new Animator()
                     {
-                        DTranslate = (dt) => new Vector3(0, 0, (float)(Math.Sin((dt + pos) / 2) * 5))
+                        DTranslate = (dt) => new Vector3(0, 0, (float)(Math.Sin((dt + pos) / 2) * 40)),
                     }
                 };
 
