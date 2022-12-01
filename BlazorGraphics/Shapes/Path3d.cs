@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Numerics;
@@ -11,9 +12,17 @@ public class Path3d : Shape
         Nodes = positions.ToArray();
     }
 
-    public override void Draw(Aptacode.BlazorCanvas.BlazorCanvas canvas, Vector3[] nodes, float dt, Matrix4x4 transform)
+    public override void Draw(Aptacode.BlazorCanvas.BlazorCanvas canvas, float dt, Matrix4x4 transform)
     {
-        canvas.PolyLine(nodes.Select(n => new Vector2(n.X, n.Y)).ToArray());
+        var polyLineNodes = new Vector2[Nodes.Length];
+        Span<Vector3> nodesAsSpan = Nodes;
+        for (int i = 0; i < Nodes.Length; i++)
+        {
+            var node = transform.Multiply(nodesAsSpan[i]);
+            polyLineNodes[i] = new Vector2(node.X, node.Y);
+        }
+
+        canvas.PolyLine(polyLineNodes);
         canvas.LineWidth(Stroke);
         canvas.StrokeStyle(EdgeColor);
         canvas.Stroke();

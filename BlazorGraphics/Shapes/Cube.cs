@@ -54,15 +54,15 @@ public class Cube : Shape
         }
     }
 
-    public override void Draw(Aptacode.BlazorCanvas.BlazorCanvas x, Vector3[] nodes, float dt, Matrix4x4 transform)
+    public override void Draw(Aptacode.BlazorCanvas.BlazorCanvas x, float dt, Matrix4x4 transform)
     {
         x.LineWidth(Stroke);
 
-        Draw(x, nodes[3], nodes[1], nodes[5], nodes[7], "#87230c");
-        Draw(x, nodes[2], nodes[3], nodes[7], nodes[6], "#bcc21d");
-        Draw(x, nodes[0], nodes[2], nodes[6], nodes[4], "#18a82b");
-        Draw(x, nodes[0], nodes[1], nodes[3], nodes[2], "#181fa8");
-        Draw(x, nodes[5], nodes[4], nodes[6], nodes[7], "#9218ab");
-        Draw(x, nodes[1], nodes[0], nodes[4], nodes[5], "#a1123a");
+        Draw(x, transform.Multiply(Nodes[3]), transform.Multiply(Nodes[1]), transform.Multiply(Nodes[5]), transform.Multiply(Nodes[7]), "#87230c");
+        Draw(x, transform.Multiply(Nodes[2]), transform.Multiply(Nodes[3]), transform.Multiply(Nodes[7]), transform.Multiply(Nodes[6]), "#bcc21d");
+        Draw(x, transform.Multiply(Nodes[0]), transform.Multiply(Nodes[2]), transform.Multiply(Nodes[6]), transform.Multiply(Nodes[4]), "#18a82b");
+        Draw(x, transform.Multiply(Nodes[0]), transform.Multiply(Nodes[1]), transform.Multiply(Nodes[3]), transform.Multiply(Nodes[2]), "#181fa8");
+        Draw(x, transform.Multiply(Nodes[5]), transform.Multiply(Nodes[4]), transform.Multiply(Nodes[6]), transform.Multiply(Nodes[7]), "#9218ab");
+        Draw(x, transform.Multiply(Nodes[1]), transform.Multiply(Nodes[0]), transform.Multiply(Nodes[4]), transform.Multiply(Nodes[5]), "#a1123a");
     }
 }

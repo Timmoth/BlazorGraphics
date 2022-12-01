@@ -7,7 +7,7 @@ public class Group : Shape
 {
     public List<Shape> Shapes { get; set; } = new();
 
-    public override void Draw(Aptacode.BlazorCanvas.BlazorCanvas x, Vector3[] nodes, float dt, Matrix4x4 transform)
+    public override void Draw(Aptacode.BlazorCanvas.BlazorCanvas x, float dt, Matrix4x4 transform)
     {
         var matrix = Matrix4x4.Multiply(Matrix, transform);
 
