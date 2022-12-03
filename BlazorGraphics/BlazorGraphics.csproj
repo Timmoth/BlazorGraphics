@@ -12,6 +12,7 @@
 	  <Description>High performance dotnet blazor 3d graphics library</Description>
 	  <AssemblyName>BlazorGraphics</AssemblyName>
 	  <RootNamespace>BlazorGraphics</RootNamespace>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
 
@@ -20,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aptacode.BlazorCanvas" Version="1.1.1" />
+    <PackageReference Include="Aptacode.BlazorCanvas" Version="1.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.0" />
   </ItemGroup>
 

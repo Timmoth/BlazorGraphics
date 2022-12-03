@@ -31,10 +31,9 @@ public static class MatrixExtensions
 
     public static Vector3 Multiply(this Matrix4x4 matrix, Vector3 vector3)
     {
-        var x = matrix.M11 * vector3.X + matrix.M21 * vector3.Y + matrix.M31 * vector3.Z + matrix.M41;
-        var y = matrix.M12 * vector3.X + matrix.M22 * vector3.Y + matrix.M32 * vector3.Z + matrix.M42;
-        var z = matrix.M13 * vector3.X + matrix.M23 * vector3.Y + matrix.M33 * vector3.Z + matrix.M43;
-
-        return new Vector3(x, y, z);
+        return new Vector3(
+            matrix.M11 * vector3.X + matrix.M21 * vector3.Y + matrix.M31 * vector3.Z + matrix.M41,
+            matrix.M12 * vector3.X + matrix.M22 * vector3.Y + matrix.M32 * vector3.Z + matrix.M42,
+            matrix.M13 * vector3.X + matrix.M23 * vector3.Y + matrix.M33 * vector3.Z + matrix.M43);
     }
 }

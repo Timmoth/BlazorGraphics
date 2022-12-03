@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Numerics;
 
 namespace BlazorGraphics.Shapes;
@@ -33,13 +34,15 @@ public class Cube : Shape
             return;
         }
 
-        canvas.Polygon(new[] {
-                new Vector2(A.X, A.Y),
-                new Vector2(B.X, B.Y),
-                new Vector2(C.X, C.Y),
-                new Vector2(D.X, D.Y),
-                new Vector2(A.X, A.Y)
-            });
+        var polyLineNodes = new double[] {
+                A.X, A.Y,
+                B.X, B.Y,
+                C.X, C.Y,
+                D.X, D.Y,
+                A.X, A.Y
+            };
+
+        canvas.Polygon(polyLineNodes);
 
         if (FacesOn)
         {
