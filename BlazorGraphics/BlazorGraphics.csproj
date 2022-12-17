@@ -4,9 +4,9 @@
 	  <TargetFramework>net7.0</TargetFramework>
 	  <Authors>Timmoth</Authors>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <Version>1.0.1</Version>
-	  <AssemblyVersion>1.0.1</AssemblyVersion>
-	  <FileVersion>1.0.1</FileVersion>
+	  <Version>1.0.2</Version>
+	  <AssemblyVersion>1.0.2</AssemblyVersion>
+	  <FileVersion>1.0.2</FileVersion>
 	  <RepositoryUrl>https://github.com/Timmoth/BlazorGraphics</RepositoryUrl>
 	  <PackageProjectUrl>https://github.com/Timmoth/BlazorGraphics</PackageProjectUrl>
 	  <Description>High performance dotnet blazor 3d graphics library</Description>
@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="Aptacode.BlazorCanvas" Version="1.1.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.1" />
   </ItemGroup>
 
 </Project>

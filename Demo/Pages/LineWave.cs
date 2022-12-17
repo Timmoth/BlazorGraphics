@@ -81,7 +81,7 @@ public class LineWave
     public void Draw(BlazorCanvas canvas, Rectangle dirtyRect)
     {
         Clear(canvas, dirtyRect);
-        frame+=0.1f;
+        frame+=0.4f;
 
         var orderedShapes = Shapes.Select(x => x.Draw(Matrix4x4.Identity, frame)).OrderByDescending(x => x.zIndex).ToList();
         for (var i = 0; i < orderedShapes.Count; i++)
